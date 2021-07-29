@@ -1,0 +1,14 @@
+<div class="bg-primary p-3 mb-3 mt-3 fw-bold text-white">
+    Upcoming 5days weather at 09:00 for {{city}} 
+</div>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+          <td *ngFor="let forecast of forecastData$ | async">
+              <div class="text-center fw-bold">{{forecast.dt_txt | date}}</div>
+              <div class="text-center">Temparature {{forecast?.temparature}}&deg;C</div>
+              <div class="text-center">SeaLevel {{forecast?.seaLevel}}</div>
+          </td>
+        </tr>
+    </tbody>    
+</table>

@@ -1,0 +1,10 @@
+<a [routerLink]="'details'" [routerLinkActive]="['active']" [queryParams]="{city: city?.cityName}" class="tile text-decoration-none">
+    <div class="card">
+        <div class="card-body">
+          <div class="text-center fw-bold">{{city?.cityName}}</div>
+          <div class="text-center">Temparature {{city?.temparature}}&deg;C</div>
+          <div class="text-center">Sunrise {{city?.sunriseTime | localtimeFromUnix:city?.timezone | date: 'shortTime': "+0000"}}</div>
+          <div class="text-center">Sunset {{city?.sunsetTime | localtimeFromUnix:city?.timezone | date: 'shortTime': "+0000"}}</div>
+        </div>
+      </div>
+</a>
