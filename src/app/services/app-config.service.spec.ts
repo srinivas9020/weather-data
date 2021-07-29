@@ -1,5 +1,6 @@
 import { AppConfigService } from './app-config.service';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 describe('AppConfigService', () => {
@@ -21,6 +22,14 @@ describe('AppConfigService', () => {
     httpClientSpy.get.and.returnValue(of(mockData));
     service.getCities().subscribe((response) => {
       expect(response).toEqual(expectedData);
+      done();
+    })
+  });
+
+  it('should return empty array from response when there is error', (done: DoneFn) => {
+    httpClientSpy.get.and.returnValue(throwError('errorResponse'));
+    service.getCities().subscribe((response) => {
+      expect(response).toEqual([]);
       done();
     })
   });
