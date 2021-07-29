@@ -11,9 +11,7 @@ import { Weather } from '../services/models/weather-widget.model'
 export class HomeComponent implements OnInit {
   cities$: Observable<Weather[]> | undefined;
 
-  constructor(
-    private weatherService: WeatherService) { 
-    }
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
     this.cities$ = this.weatherService.getDataForCities();
