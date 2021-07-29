@@ -14,7 +14,10 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '', redirectTo: '/weather', pathMatch: 'full' }
+  { path: '', redirectTo: '/weather', pathMatch: 'full' },
+  {
+    path:'**', redirectTo: '/weather', pathMatch: 'full'
+  }
 
 ];
 
